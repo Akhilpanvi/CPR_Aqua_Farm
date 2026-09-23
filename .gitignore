@@ -1,0 +1,6 @@
+.DS_Store
+
+# Raw camera originals and source brand files — kept locally, not in the repo.
+# Only the optimised derivatives under site/img/ are versioned.
+Assets/
+Brand/
