@@ -37,14 +37,19 @@ metadata before encoding (`sips -r 90`, then remove the APPn segments) or they w
 
 ## Reserved media slots
 
-Three places are held open for material that is still coming. Each is marked with a `MEDIA SLOT`
+Two places are held open for material that is still coming. Each is marked with a `MEDIA SLOT`
 comment in `index.html` containing the markup to drop in:
 
 | Slot | Where | For |
 |---|---|---|
 | A | Hero | Drone video background (poster already wired up) |
-| B | Founder card | Portrait of Chakkapalli Venkata Prabhakar Rao |
 | C | "From Above" section | Drone film and aerial stills |
+
+The founder portrait is cropped to 4:5 from `Brand/CPR.png`:
+
+```sh
+sips -s format png -c 1357 1086 --cropOffset 40 0 Brand/CPR.png --out crop.png
+```
 
 ## Before going live
 

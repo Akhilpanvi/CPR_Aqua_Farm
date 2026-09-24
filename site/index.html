@@ -18,6 +18,8 @@
 <link rel="apple-touch-icon" href="img/icon-180.png">
 
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="img/hero-1600.avif" type="image/avif"
       imagesrcset="img/hero-1000.avif 1000w, img/hero-1600.avif 1600w, img/hero-2200.avif 2200w, img/hero-2800.avif 2800w"
       imagesizes="100vw" fetchpriority="high">
@@ -25,6 +27,9 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap"></noscript>
+
+<!-- Noto Sans Telugu, subset to only the glyphs in the founder's quote (~3 KB). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@500;600&text=%E0%B0%A8%E0%B1%80%E0%B0%B0%E0%B1%81%20%E0%B0%A4%E0%B0%95%E0%B0%BE%E0%B0%B5%E0%B0%B2%E0%B0%B8%E0%B0%BF%E0%B0%A6%E0%B0%9A%E0%B1%86%E0%B0%AC%E0%B0%82.%E0%B0%A1%E0%B0%AE%E0%B0%85%E0%B1%8D%E0%B0%89%E0%B0%9F%E0%B1%87&display=swap">
 
 <script>document.documentElement.className = document.documentElement.className.replace('no-js','js');</script>
 
@@ -59,6 +64,7 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#farm">The Farm</a>
+      <a href="#founder">Founder</a>
       <a href="#practice">How We Farm</a>
       <a href="#certification">Certification</a>
       <a href="#gallery">Gallery</a>
@@ -160,24 +166,61 @@
 </section>
 
 <!-- ───────────────────────── founder ───────────────────────── -->
-<section class="section section-tint">
+<section class="section section-tint" id="founder">
   <div class="wrap">
-    <div class="founder-card rv">
-      <!-- MEDIA SLOT B — founder portrait.
-           Replace the figure below with a photograph when one is available. -->
-      <figure class="fig fig-1x1" style="--p: var(--lq-calm)">
-        <picture>
-          <source type="image/avif" srcset="img/calm-640.avif 640w, img/calm-1000.avif 1000w" sizes="200px">
-          <img data-fade src="img/calm-640.jpg" srcset="img/calm-640.jpg 640w, img/calm-1000.jpg 1000w" sizes="200px" width="3024" height="4032" loading="lazy" decoding="async" alt="Still pond water at CPR Aqua Farms">
-        </picture>
-      </figure>
-      <div class="prose">
-        <p class="founder-role">Founder</p>
-        <h3 class="founder-name">Chakkapalli Venkata Prabhakar Rao</h3>
-        <p>Prabhakar Rao stocked the first pond at Gurajanapalli in 1989, when shrimp farming in Andhra Pradesh was still something you learned by doing. The farm carries his initials, and it still runs the way he set it up to run — slowly, on observation, and without shortcuts that cost you the next crop.</p>
-        <p>The rebuild in 2016 was his decision too: take the ponds apart, fix what three decades had taught him to fix, and start again properly.</p>
+    <div class="rv" style="margin-bottom:clamp(40px,6vw,64px)">
+      <p class="label">Visionary Founder</p>
+      <h2 class="h2" style="max-width:none">Chakkapalli Venkata Prabhakar Rao</h2>
+    </div>
+
+    <div class="founder-layout">
+      <div class="founder-aside rv">
+        <figure class="fig fig-4x5" style="--p: var(--lq-founder)">
+          <picture>
+            <source type="image/avif" srcset="img/founder-500.avif 500w, img/founder-800.avif 800w, img/founder-1100.avif 1100w" sizes="(min-width:900px) 340px, 100vw">
+            <img data-fade src="img/founder-800.jpg" srcset="img/founder-500.jpg 500w, img/founder-800.jpg 800w, img/founder-1100.jpg 1100w" sizes="(min-width:900px) 340px, 100vw" width="1086" height="1357" loading="lazy" decoding="async" alt="Chakkapalli Venkata Prabhakar Rao, founder of CPR Aqua Farms">
+          </picture>
+        </figure>
+        <p class="founder-meta">
+          <b>Chakkapalli Venkata Prabhakar Rao</b>
+          <span>Founder · 36+ years in aquaculture</span>
+        </p>
+      </div>
+
+      <div class="prose rv">
+        <p class="lead">With more than 36 years in aquaculture, Prabhakar Rao has built his expertise through years of working directly with ponds, water, soil and shrimp — learning from every season and refining the way each crop is managed.</p>
+        <p>His approach is rooted in observation and experience. He has developed a deep understanding of pond behaviour, water conditions, soil preparation, stocking, feeding, aeration and crop health, along with the small changes that can make a significant difference over the course of a crop.</p>
+        <p>Over the years his farming practices have evolved with the industry — incorporating better pond preparation, water-quality management, feed practices, aeration techniques, biosecurity measures and crop monitoring, while retaining the practical knowledge gained from decades on the farm.</p>
+        <p>What distinguishes his approach is not a single farming formula, but the ability to read the pond, understand changing conditions and respond at the right time. Every crop brings different water, weather and biological conditions, and his experience lies in recognising those changes early and adjusting accordingly.</p>
+        <p>His vision for CPR Aqua Farms is to build on this experience — combining proven farming knowledge with improved techniques, responsible resource management and continuous refinement to produce healthy shrimp and maintain the long-term health of the farm.</p>
       </div>
     </div>
+
+    <figure class="quote rv">
+      <svg class="quote-ripple" viewBox="0 0 440 440" fill="none" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="1.5">
+          <ellipse cx="220" cy="220" rx="36"  ry="13"/>
+          <ellipse cx="220" cy="220" rx="76"  ry="27"/>
+          <ellipse cx="220" cy="220" rx="118" ry="42"/>
+          <ellipse cx="220" cy="220" rx="162" ry="58"/>
+          <ellipse cx="220" cy="220" rx="208" ry="74"/>
+        </g>
+      </svg>
+
+      <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M9.6 5.2C6.3 6.9 4.4 9.7 4.4 13.1c0 3.4 1.9 5.7 4.7 5.7 2.3 0 4-1.6 4-3.8 0-2.1-1.4-3.6-3.4-3.6-.4 0-.8.1-1 .2.3-1.6 1.6-3.1 3.5-4.2l-2.6-2.2zm10 0c-3.3 1.7-5.2 4.5-5.2 7.9 0 3.4 1.9 5.7 4.7 5.7 2.3 0 4-1.6 4-3.8 0-2.1-1.4-3.6-3.4-3.6-.4 0-.8.1-1 .2.3-1.6 1.6-3.1 3.5-4.2l-2.6-2.2z"/>
+      </svg>
+
+      <blockquote class="quote-te" lang="te"><span>నీరు తనకు కావలసినది చెబుతుంది.</span> <span>వినడానికి మీరు అక్కడ ఉంటే చాలు.</span></blockquote>
+
+      <div class="quote-rule" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5s6.5 7.2 6.5 11.4A6.5 6.5 0 0 1 12 20.5a6.5 6.5 0 0 1-6.5-6.6C5.5 9.7 12 2.5 12 2.5z"/></svg>
+      </div>
+
+      <blockquote class="quote-en" lang="en">“The water tells you what it needs. You only have to be there to hear it.”</blockquote>
+
+      <figcaption>Chakkapalli Venkata Prabhakar Rao · Founder</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -191,8 +234,8 @@
   </figure>
   <div class="band-quote">
     <div class="wrap">
-      <blockquote>The water tells you what it needs. You only have to be there to hear it.</blockquote>
-      <footer>On the bund, most evenings</footer>
+      <blockquote>Every pond is read, every evening.</blockquote>
+      <footer>Gurajanapalli, Andhra Pradesh</footer>
     </div>
   </div>
 </section>
@@ -432,6 +475,7 @@
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <a href="#farm">The Farm</a>
+        <a href="#founder">Founder</a>
         <a href="#practice">How We Farm</a>
         <a href="#certification">Certification</a>
         <a href="#aerial">From Above</a>
