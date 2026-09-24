@@ -409,12 +409,35 @@ p { margin: 0; text-wrap: pretty; }
   line-height: 1.45; letter-spacing: -.03em;
 }
 
+.cprq-foot {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  margin-top: 18px;
+}
+
 .cprq cite {
-  display: block; margin-top: 16px;
   font-style: normal; font-weight: 700;
   font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
   color: var(--brand); opacity: .85;
 }
+
+.cprq-lang {
+  font-family: inherit; font-size: 12px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--brand);
+  background: transparent;
+  border: 1px solid rgba(1,128,156,.32);
+  border-radius: var(--r-pill);
+  padding: 5px 13px;
+  cursor: pointer;
+  transition: background .25s var(--ease), border-color .25s var(--ease);
+}
+.cprq-lang[lang="te"] {
+  font-family: "Noto Sans Telugu", "Gautami", "Nirmala UI", sans-serif;
+  text-transform: none; letter-spacing: .02em; font-size: 13px;
+}
+.cprq:hover .cprq-lang,
+.cprq-lang:hover { background: rgba(1,128,156,.09); border-color: var(--brand); }
+.no-js .cprq-lang { display: none; }
 
 /* ---------- practice cards ---------- */
 

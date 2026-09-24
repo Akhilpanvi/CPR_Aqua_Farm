@@ -23,19 +23,40 @@ for (const el of document.querySelectorAll('.rv')) reveal.observe(el);
 
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-// founder quote: Telugu, switching to English while the pointer or focus is on it
+// founder quote: Telugu by default, English while hovered. Tapping the pill
+// latches a language, so it also works on touch, where there is no hover.
 const cprq = document.querySelector('.cprq');
 if (cprq) {
   const te = cprq.querySelector('.cprq-te');
   const en = cprq.querySelector('.cprq-en');
+  const pill = cprq.querySelector('.cprq-lang');
+  let latched = 'te';
+  let hovering = false;
 
-  const show = (english) => () => {
+  const render = () => {
+    const english = hovering || latched === 'en';
     en.classList.toggle('is-on', english);
     te.classList.toggle('is-on', !english);
+    pill.textContent = english ? 'తెలుగు' : 'English';
+    pill.lang = english ? 'te' : 'en';
+    pill.setAttribute('aria-label', english ? 'Show the quote in Telugu' : 'Show the quote in English');
   };
 
-  cprq.addEventListener('pointerenter', show(true));
-  cprq.addEventListener('pointerleave', show(false));
-  cprq.addEventListener('focus', show(true));
-  cprq.addEventListener('blur', show(false));
+  // a click anywhere on the quote — including the pill — latches the other language
+  cprq.addEventListener('click', () => {
+    latched = latched === 'en' ? 'te' : 'en';
+    hovering = false;
+    render();
+  });
+
+  cprq.addEventListener('pointerenter', (e) => {
+    if (e.pointerType === 'touch') return;
+    hovering = true; render();
+  });
+  cprq.addEventListener('pointerleave', (e) => {
+    if (e.pointerType === 'touch') return;
+    hovering = false; render();
+  });
+
+  render();
 }
