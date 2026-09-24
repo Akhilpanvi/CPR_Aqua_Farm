@@ -393,10 +393,24 @@ p { margin: 0; text-wrap: pretty; }
   grid-area: 1 / 1;
   color: var(--brand);
   font-weight: 700;
+
+  /* the outgoing line clears first, then the incoming one resolves, so the two
+     languages never sit on top of each other at half opacity */
   opacity: 0;
-  transition: opacity .55s var(--ease);
+  filter: blur(3px);
+  pointer-events: none;
+  user-select: none;
+  will-change: opacity, filter;
+  transition: opacity .32s var(--ease), filter .32s var(--ease);
 }
-.cprq-l.is-on { opacity: 1; }
+.cprq-l.is-on {
+  opacity: 1;
+  filter: blur(0);
+  pointer-events: auto;
+  user-select: auto;
+  transition-duration: .45s;
+  transition-delay: .3s;
+}
 .no-js .cprq-en { display: none; }
 
 .cprq-te {
