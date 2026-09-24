@@ -29,8 +29,6 @@ const cprq = document.querySelector('.cprq');
 if (cprq) {
   const te = cprq.querySelector('.cprq-te');
   const en = cprq.querySelector('.cprq-en');
-  const pill = cprq.querySelector('.cprq-lang');
-  const pillText = cprq.querySelector('.cprq-lang-t');
   let latched = 'te';
   let hovering = false;
 
@@ -38,12 +36,9 @@ if (cprq) {
     const english = hovering || latched === 'en';
     en.classList.toggle('is-on', english);
     te.classList.toggle('is-on', !english);
-    pillText.textContent = english ? 'తెలుగు' : 'English';
-    pillText.lang = english ? 'te' : 'en';
-    pill.setAttribute('aria-label', english ? 'Show the quote in Telugu' : 'Show the quote in English');
   };
 
-  // a click anywhere on the quote — including the pill — latches the other language
+  // tapping latches a language, which is how this works where there is no hover
   cprq.addEventListener('click', () => {
     latched = latched === 'en' ? 'te' : 'en';
     hovering = false;
