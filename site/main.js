@@ -30,6 +30,7 @@ if (cprq) {
   const te = cprq.querySelector('.cprq-te');
   const en = cprq.querySelector('.cprq-en');
   const pill = cprq.querySelector('.cprq-lang');
+  const pillText = cprq.querySelector('.cprq-lang-t');
   let latched = 'te';
   let hovering = false;
 
@@ -37,8 +38,8 @@ if (cprq) {
     const english = hovering || latched === 'en';
     en.classList.toggle('is-on', english);
     te.classList.toggle('is-on', !english);
-    pill.textContent = english ? 'తెలుగు' : 'English';
-    pill.lang = english ? 'te' : 'en';
+    pillText.textContent = english ? 'తెలుగు' : 'English';
+    pillText.lang = english ? 'te' : 'en';
     pill.setAttribute('aria-label', english ? 'Show the quote in Telugu' : 'Show the quote in English');
   };
 
