@@ -397,19 +397,30 @@ p { margin: 0; text-wrap: pretty; }
   /* the outgoing line clears first, then the incoming one resolves, so the two
      languages never sit on top of each other at half opacity */
   opacity: 0;
-  filter: blur(3px);
+  filter: blur(4px);
+  transform: translateY(6px);
   pointer-events: none;
   user-select: none;
-  will-change: opacity, filter;
-  transition: opacity .32s var(--ease), filter .32s var(--ease);
+  will-change: opacity, filter, transform;
+
+  /* leaving: sink away, gently accelerating out */
+  transition:
+    opacity   .5s cubic-bezier(.4, 0, .7, .3),
+    filter    .5s cubic-bezier(.4, 0, .7, .3),
+    transform .5s cubic-bezier(.4, 0, .7, .3);
 }
 .cprq-l.is-on {
   opacity: 1;
   filter: blur(0);
+  transform: none;
   pointer-events: auto;
   user-select: auto;
-  transition-duration: .45s;
-  transition-delay: .3s;
+
+  /* arriving: rise into place, decelerating to a stop */
+  transition:
+    opacity   .75s cubic-bezier(.16, .8, .3, 1) .34s,
+    filter    .75s cubic-bezier(.16, .8, .3, 1) .34s,
+    transform .75s cubic-bezier(.16, .8, .3, 1) .34s;
 }
 .no-js .cprq-en { display: none; }
 
