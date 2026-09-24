@@ -259,6 +259,12 @@ p { margin: 0; text-wrap: pretty; }
 }
 .section-dark .label { color: #6FC6DE; }
 
+.label-lg {
+  font-size: clamp(15px, 1.7vw, 18px);
+  letter-spacing: .2em; font-weight: 700;
+  margin-bottom: 14px;
+}
+
 .h2 { font-size: clamp(1.9rem, 4.4vw, 3.25rem); max-width: 20ch; }
 .h3 { font-size: clamp(1.3rem, 2.6vw, 1.85rem); }
 
@@ -280,6 +286,15 @@ p { margin: 0; text-wrap: pretty; }
 
 .prose > * + * { margin-top: 20px; }
 .prose p { font-size: 17px; line-height: 1.68; }
+.prose strong { font-weight: 700; color: var(--text-strong); }
+
+.prose-justify p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+@media (max-width: 560px) { .prose-justify p { text-align: left; hyphens: none; } }
 
 /* ---------- figures / lazy images ---------- */
 
@@ -332,6 +347,13 @@ p { margin: 0; text-wrap: pretty; }
 
 /* ---------- founder ---------- */
 
+.founder-head { margin-bottom: clamp(36px, 5vw, 56px); }
+.founder-title {
+  font-size: clamp(1.5rem, 2.9vw, 2.15rem);
+  letter-spacing: -.035em;
+  max-width: none;
+}
+
 .founder-layout { display: grid; gap: 40px; grid-template-columns: 1fr; }
 @media (min-width: 900px) {
   .founder-layout { grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 72px; }
@@ -356,66 +378,42 @@ p { margin: 0; text-wrap: pretty; }
   color: var(--brand);
 }
 
-/* ---------- bilingual quote ---------- */
+/* ---------- founder quote (bilingual, auto-swapping) ---------- */
 
-.quote {
-  position: relative; overflow: hidden;
-  margin: clamp(56px, 8vw, 96px) 0 0;
-  padding: clamp(36px, 5.5vw, 72px) clamp(26px, 5vw, 72px);
-  border-radius: var(--r-lg);
-  background: var(--deep);
-  color: #fff;
-  isolation: isolate;
+.cprq {
+  margin: clamp(34px, 4.5vw, 48px) 0 0;
+  padding-top: clamp(26px, 3.5vw, 34px);
+  border-top: 1px solid var(--line-strong);
+  outline-offset: 6px;
 }
 
-.quote-ripple {
-  position: absolute; z-index: -1;
-  right: -90px; top: 50%; translate: 0 -50%;
-  width: min(460px, 78%); height: auto;
-  color: #6FC6DE; opacity: .17;
-  pointer-events: none;
-}
-@media (max-width: 700px) {
-  .quote-ripple { right: -140px; top: auto; bottom: -110px; translate: none; width: 340px; }
-}
+.cprq-lines { display: grid; }
 
-.quote-mark {
-  width: 34px; height: 34px; color: var(--brand);
-  margin-bottom: 26px; opacity: .9;
+.cprq-l {
+  grid-area: 1 / 1;
+  color: var(--brand);
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity .55s var(--ease);
 }
+.cprq-l.is-on { opacity: 1; }
+.no-js .cprq-en { display: none; }
 
-.quote-te {
+.cprq-te {
   font-family: "Noto Sans Telugu", "Gautami", "Nirmala UI", sans-serif;
-  font-weight: 600;
-  font-size: clamp(1.3rem, 3.3vw, 2.1rem);
-  line-height: 1.55; letter-spacing: 0;
-  color: #fff;
-  margin: 0;
+  font-size: clamp(1.05rem, 2.1vw, 1.4rem);
+  line-height: 1.65; letter-spacing: 0;
 }
-@media (min-width: 760px) { .quote-te span { display: block; } }
-
-.quote-rule {
-  display: flex; align-items: center; gap: 16px;
-  margin: 26px 0;
-  color: rgba(255,255,255,.28);
-}
-.quote-rule::before, .quote-rule::after {
-  content: ""; height: 1px; background: currentColor; flex: 1;
-}
-.quote-rule::after { flex: 3; }
-.quote-rule svg { width: 15px; height: 15px; flex: none; color: #6FC6DE; }
-
-.quote-en {
-  font-size: clamp(1.15rem, 2.8vw, 1.85rem);
-  line-height: 1.35; letter-spacing: -.035em;
-  color: var(--on-dark-mute);
-  margin: 0;
+.cprq-en {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  line-height: 1.45; letter-spacing: -.03em;
 }
 
-.quote figcaption {
-  margin-top: clamp(28px, 4vw, 40px);
-  font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase;
-  color: rgba(255,255,255,.55);
+.cprq cite {
+  display: block; margin-top: 16px;
+  font-style: normal; font-weight: 700;
+  font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--brand); opacity: .85;
 }
 
 /* ---------- practice cards ---------- */
