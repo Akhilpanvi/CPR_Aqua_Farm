@@ -23,25 +23,19 @@ for (const el of document.querySelectorAll('.rv')) reveal.observe(el);
 
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-// founder quote: Telugu by default, English while pointed at, otherwise alternating
+// founder quote: Telugu, switching to English while the pointer or focus is on it
 const cprq = document.querySelector('.cprq');
 if (cprq) {
   const te = cprq.querySelector('.cprq-te');
   const en = cprq.querySelector('.cprq-en');
-  let rotatedToEnglish = false;
-  let held = false;
 
-  const render = () => {
-    const showEnglish = held || rotatedToEnglish;
-    en.classList.toggle('is-on', showEnglish);
-    te.classList.toggle('is-on', !showEnglish);
+  const show = (english) => () => {
+    en.classList.toggle('is-on', english);
+    te.classList.toggle('is-on', !english);
   };
 
-  setInterval(() => { rotatedToEnglish = !rotatedToEnglish; render(); }, 10000);
-
-  const hold = (on) => () => { held = on; render(); };
-  cprq.addEventListener('pointerenter', hold(true));
-  cprq.addEventListener('pointerleave', hold(false));
-  cprq.addEventListener('focus', hold(true));
-  cprq.addEventListener('blur', hold(false));
+  cprq.addEventListener('pointerenter', show(true));
+  cprq.addEventListener('pointerleave', show(false));
+  cprq.addEventListener('focus', show(true));
+  cprq.addEventListener('blur', show(false));
 }
